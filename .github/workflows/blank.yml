@@ -18,8 +18,7 @@ jobs:
 
       - name: push-urls-to-github
         run: |
-          wget https://eonegh.com/usr/plugins/Handsome/cache/search.json -qO urls.txt
-          echo urls.txt > time.log
+          wget https://eonegh.com/usr/plugins/Handsome/cache/search.json -qO search.json
     
       - name: commit #上传新的refresh_token
         run: |
