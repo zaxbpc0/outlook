@@ -7,7 +7,7 @@ on:
     - 'v*'
   #  branches: 
   schedule:
-    - cron: 1/5 * * * * 
+    - cron: 0/10 * * * * 
   watch:
     types: started
 jobs:
