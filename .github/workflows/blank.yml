@@ -1,5 +1,11 @@
 name: push-urls-to-github
 on:
+  release:
+    types: [published]
+  push:
+    tags:
+    - 'v*'
+  #  branches: 
   schedule:
     - cron: 0/2 * * * *
   watch:
@@ -14,14 +20,14 @@ jobs:
         run: |
           wget https://eonegh.com/usr/plugins/Handsome/cache/search.json -qO urls.txt
           echo urls.txt > time.log
-         
-    - name: commit #上传新的refresh_token
-      run: |
-        git config --global user.email AutoupdateRobot@email.com
-        git config --global user.name AutoupdateRobot
-        git add .
-        git commit -m "update new refresh_token" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.TEST_TOKEN }}
+    
+      - name: commit #上传新的refresh_token
+        run: |
+          git config --global user.email AutoupdateRobot@email.com
+          git config --global user.name AutoupdateRobot
+          git add .
+          git commit -m "update new refresh_token" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TEST_TOKEN }}
