@@ -1,11 +1,5 @@
 name: push-urls-to-github
 on:
-  release:
-    types: [published]
-  push:
-    tags:
-    - 'v*'
-  #  branches: 
   schedule:
     - cron: 0/10 * * * * 
   watch:
