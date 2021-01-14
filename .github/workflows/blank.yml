@@ -7,7 +7,7 @@ on:
     - 'v*'
   #  branches: 
   schedule:
-    - cron: 0/2 * * * *
+    - cron: 0/5 * * * *
   watch:
     types: started
 jobs:
@@ -22,8 +22,6 @@ jobs:
     
       - name: commit #上传新的refresh_token
         run: |
-          git config --global user.email AutoupdateRobot@email.com
-          git config --global user.name AutoupdateRobot
           git add .
           git commit -m "update new refresh_token" -a
       - name: Push changes
