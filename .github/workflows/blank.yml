@@ -1,0 +1,16 @@
+name: push-urls-to-github
+on:
+  schedule:
+    - cron: 0/2 * * * *
+  watch:
+    types: started
+jobs:
+  push-urls-to-baidu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: push-urls-to-github
+        run: |
+          wget https://eonegh.com/usr/plugins/Handsome/cache/search.json -qO urls.txt
+          echo urls.txt > time.log
