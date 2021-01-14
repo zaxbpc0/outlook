@@ -24,3 +24,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TEST_TOKEN }}
+      
+      - name: push-urls-to-jsdelivr
+        run: |
+          curl -A "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.0)" https://purge.jsdelivr.net/gh/zaxbpc0/outlook/search.json
