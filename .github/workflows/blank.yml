@@ -22,6 +22,8 @@ jobs:
     
       - name: commit #上传新的refresh_token
         run: |
+          git config --global user.email AutoupdateRobot@email.com
+          git config --global user.name AutoupdateRobot
           git add .
           git commit -m "update new refresh_token" -a
       - name: Push changes
